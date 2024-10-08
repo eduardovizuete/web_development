@@ -11,4 +11,4 @@ Directory: auth_demo
 MERN Stack Project: Build a Modern Real Estate Marketplace with react MERN (jwt, redux toolkit)
 React + Vite
 
-Directory: mern-state
+Directory: mern-estate
