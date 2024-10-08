@@ -2,25 +2,44 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../redux/slices/authSlice";
+import { authAPI } from "../services/api";
 
 export default function Login() {
     // we will use 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // make a new state constant so that we can show errors
+    const [error, setError] = useState(null);
 
     // get the dispatcher hook to call the action functions 
     const dispatcher = useDispatch();
 
-    const handleSubmitButton = (e) => {
+    // make this function async
+    const handleSubmitButton = async (e) => {
         e.preventDefault();
-        // mock user 
-        const user = {
-            email: "test@gmail.com",
-            token: "hulalalalala"
-        };
-        //we will convert the user obj to JSON and call the login function from redux.
-        // The JSON string will be caught by action and we can access the JSON from action.payload 
-        dispatcher(login(JSON.stringify(user)));
+
+        //lets call the API 
+        const response = await authAPI.api_login({ email, password });
+
+        if (!response) {
+            setError("Some error occurred. Try again later");
+            return;
+        }
+
+        console.log(response)
+
+        //check if there is any error
+        if (response.error) {
+            setError(response.error);
+            return;
+        }
+
+        //first lets convert the userJSON which is email and JWT token 
+        //in case of successful login
+        const userJSON = JSON.stringify(response)
+
+        //now lets login the user using dispatcher action function
+        dispatcher(login(userJSON))
     }
 
     return (
@@ -32,6 +51,7 @@ export default function Login() {
                         <label>Email:</label>
                         <input
                             type="email"
+                            name="email"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
@@ -41,17 +61,24 @@ export default function Login() {
                         <label>Password:</label>
                         <input
                             type="password"
+                            name="password"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
                         />
                     </div>
-                    <button onClick={handleSubmitButton} type="submit" className="submit-btn">
+                    <button
+                        onClick={handleSubmitButton}
+                        type="submit"
+                        className="submit-btn"
+                    >
                         Submit
                     </button>
                     <p>
                         New user? <Link to="/signup">Create an account</Link>
                     </p>
+
+                    {error && <div className="error-message">{error}</div>}
                 </form>
             </div>
         </div>

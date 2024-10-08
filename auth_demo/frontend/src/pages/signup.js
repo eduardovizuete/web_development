@@ -2,24 +2,44 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../redux/slices/authSlice";
+import { authAPI } from "../services/api";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [retypePassword, setRetypePassword] = useState("");
+    const [error, setError] = useState(null);
 
     // get the dispatcher hook to call the action functions 
     const dispatcher = useDispatch()
 
-    const handleSubmitButton = (e) => {
-        // mock user 
-        const user = {
-            email: "test@gmail.com",
-            token: "hulalalalala",
-        };
-        //we will convert the user obj to JSON and call the login function from redux.
-        // The JSON string will be caught by action and we can access the JSON from action.payload 
-        dispatcher(login(JSON.stringify(user)));
+    const handleSubmitButton = async (e) => {
+        e.preventDefault()
+
+        //local checks
+        if (password !== retypePassword) {
+            setError('Passwords do not match')
+            return
+        }
+
+        //call the api 
+        const response = await authAPI.api_signup({ email, password })
+
+        //set the error
+        if (!response) {
+            setError("Some error occurred. Try again later");
+            return;
+        }
+
+        if (response.error) {
+            setError(response.error)
+            return
+        }
+
+        const userJSON = JSON.stringify(response)
+
+        //login the user once account is created
+        dispatcher(login(userJSON))
     }
 
     return (
@@ -31,6 +51,7 @@ export default function Signup() {
                         <label>Email:</label>
                         <input
                             type="email"
+                            name="email"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
@@ -40,6 +61,7 @@ export default function Signup() {
                         <label>Password:</label>
                         <input
                             type="password"
+                            name="password"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
@@ -49,6 +71,7 @@ export default function Signup() {
                         <label>Confirm Password:</label>
                         <input
                             type="password"
+                            name="password"
                             onChange={(e) => setRetypePassword(e.target.value)}
                             value={retypePassword}
                             required
@@ -60,6 +83,7 @@ export default function Signup() {
                     <p>
                         Already an account? <Link to="/=">Login</Link>
                     </p>
+                    {error && <div className="error-message">{error}</div>}
                 </form>
             </div>
         </div>
