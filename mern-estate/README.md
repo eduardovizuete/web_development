@@ -4,12 +4,31 @@
 
 React & Next js Projects with Sahand
 
+## Create client frontend
+
     npm create vite@latest client
     cd client
     npm install
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init -p
     npm run dev
+
+## Create backend (api)
+
+    create directory api
+    in root directory mern-state
+        npm init -y
+        npm i express
+        node api/index.js
+        npm install nodemon
+        npm run dev
+    
+    database package
+        npm i mongoose
+        mongodb+srv://changeuser:changepass@mern-state.q80kk.mongodb.net/?retryWrites=true&w=majority&appName=mern-state
+    
+    access to environment variables
+        npm install dotenv
 
 ## React + Vite
 
