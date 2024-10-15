@@ -19,6 +19,7 @@ React & Next js Projects with Sahand
     in root directory mern-state
         npm init -y
         npm i express
+        npm install bcryptjs
         node api/index.js
         npm install nodemon
         npm run dev
