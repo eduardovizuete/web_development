@@ -22,6 +22,7 @@ React & Next js Projects with Sahand
         npm install bcryptjs
         node api/index.js
         npm install nodemon
+        npm install jsonwebtoken
         npm run dev
     
     database package
