@@ -12,6 +12,8 @@ React & Next js Projects with Sahand
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init -p
     npm run dev
+    - Install Redux Toolkit and React-Redux
+    npm install @reduxjs/toolkit react-redux
 
 ## Create backend (api)
 
@@ -22,7 +24,9 @@ React & Next js Projects with Sahand
         npm install bcryptjs
         node api/index.js
         npm install nodemon
+        - libreria json web token
         npm install jsonwebtoken
+        - run application
         npm run dev
     
     database package
