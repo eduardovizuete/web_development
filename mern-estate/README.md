@@ -14,6 +14,8 @@ React & Next js Projects with Sahand
     npm run dev
     - Install Redux Toolkit and React-Redux
     npm install @reduxjs/toolkit react-redux
+    - Persist
+    npm install redux-persist
 
 ## Create backend (api)
 
