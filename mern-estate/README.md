@@ -16,6 +16,8 @@ React & Next js Projects with Sahand
     npm install @reduxjs/toolkit react-redux
     - Persist
     npm install redux-persist
+    - Firebase
+    npm install firebase
 
 ## Create backend (api)
 
