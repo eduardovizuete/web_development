@@ -23,22 +23,38 @@ React & Next js Projects with Sahand
 
     create directory api
     in root directory mern-state
-        npm init -y
-        npm i express
-        npm install bcryptjs
-        node api/index.js
-        npm install nodemon
+    
+        $ npm init -y
+
+        - Fast, unopinionated, minimalist web framework for Node.js.
+            $ npm i express
+        
+        - Database Mongoose MongoDB ODM (object-document mapper)
+            $ npm i mongoose
+                mongodb+srv://changeuser:changepass@mern-state.q80kk.mongodb.net/?retryWrites=true&w=majority&appName=mern-state
+    
+        - Loads environment variables from .env file
+            $ npm install dotenv
+        
+        - Optimized bcrypt in plain JavaScript with zero dependencies. Compatible to 'bcrypt'.
+            $ npm install bcryptjs
+        
+        - Simple monitor script for use during development of a Node.js app
+            $ npm install nodemon
+        
         - libreria json web token
-        npm install jsonwebtoken
+            $ npm install jsonwebtoken
+
+        - Parse Cookie header and populate req.cookies with an object keyed by the cookie names
+            $ npm install cookie-parser
+        
         - run application
-        npm run dev
+            $ node api/index.js
+            $ npm run dev
+        
+        
     
-    database package
-        npm i mongoose
-        mongodb+srv://changeuser:changepass@mern-state.q80kk.mongodb.net/?retryWrites=true&w=majority&appName=mern-state
     
-    access to environment variables
-        npm install dotenv
 
 ## React + Vite
 
