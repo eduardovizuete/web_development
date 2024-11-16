@@ -18,6 +18,8 @@ React & Next js Projects with Sahand
     npm install redux-persist
     - Firebase
     npm install firebase
+    - Swiper: modern mobile touch slider 
+    npm install swiper
 
 ## Create backend (api)
 
