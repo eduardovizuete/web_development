@@ -34,7 +34,7 @@ export default function CreateListing() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const fetchListing = async() => {
+        const fetchListing = async () => {
             const listingId = params.listingId;
             const res = await fetch(`/api/listing/get/${listingId}`);
             const data = await res.json();
@@ -302,7 +302,9 @@ export default function CreateListing() {
                             />
                             <div className="flex flex-col items-center">
                                 <p>Regular Price</p>
-                                <span className="text-xs">($ / month)</span>
+                                {formData.type === 'rent' && (
+                                    <span className='text-xs'>($ / month)</span>
+                                )}
                             </div>
                         </div>
                         {formData.offer && (
@@ -319,7 +321,9 @@ export default function CreateListing() {
                                 />
                                 <div className="flex flex-col items-center">
                                     <p>Discount price</p>
-                                    <span className="text-xs">($ / month)</span>
+                                    {formData.type === 'rent' && (
+                                        <span className='text-xs'>($ / month)</span>
+                                    )}
                                 </div>
                             </div>
                         )}
