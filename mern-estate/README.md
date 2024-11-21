@@ -23,6 +23,8 @@ React & Next js Projects with Sahand
     npm install firebase
     - Swiper: modern mobile touch slider 
     npm install swiper
+    - @tailwindcss/line-clamp: A plugin that provides utilities for visually truncating text after a fixed number of lines.
+    npm install -D @tailwindcss/line-clamp
 
 ## Create backend (api)
 
