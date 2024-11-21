@@ -3,7 +3,7 @@
 <https://www.youtube.com/watch?v=VAaUy_Moivw>
 
 Source code Git:
-<https://github.com/sahandghavidel/mern-blog>
+https://github.com/sahandghavidel/mern-estate
 
 React & Next js Projects with Sahand
 
