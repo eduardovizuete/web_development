@@ -9,7 +9,7 @@ export default function ListingItem({ listing }) {
                       w-full sm:w-[330px]">
       <Link to={`/listing/${listing._id}`}>
         <img
-          src={listing.imageUrls[0]}
+          src={listing.imageUrls[0] || "https://t4.ftcdn.net/jpg/03/55/89/13/360_F_355891355_QsgGOEafIHoTexaNo169uBmu4JNXMftd.jpg"}
           alt="listing cover"
           className="h-[320px] sm:h-[220px] w-full object-cover 
                     hover:scale-105 transition-scale duration-300"
