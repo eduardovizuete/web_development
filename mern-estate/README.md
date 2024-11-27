@@ -29,7 +29,7 @@ React & Next js Projects with Sahand
 ## Create backend (api)
 
     create directory api
-    in root directory mern-state
+    in root directory mern-estate
     
         $ npm init -y
 
@@ -58,10 +58,12 @@ React & Next js Projects with Sahand
         - run application
             $ node api/index.js
             $ npm run dev
-        
-        
-    
-    
+
+## Deploy
+
+  Deploy in render.com
+    Your fastest path to production
+    Build, deploy, and scale your apps with unparalleled ease – from your first user to your billionth
 
 ## React + Vite
 
